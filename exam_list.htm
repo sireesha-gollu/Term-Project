@@ -1,0 +1,87 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body  
+            {    
+                margin: auto;  
+                padding: 0;  
+                background: url("{% static 'images/eback.jpg' %}");  
+                font-family: 'Arial';   
+            }    
+        table {
+          width:100%;
+        }
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 15px;
+          text-align: left;
+        }
+        #t01 tr:nth-child(even) {
+          background-color: #eee;
+        }
+        #t01 tr:nth-child(odd) {
+         background-color: #fff;
+        }
+        #t01 th {
+          background-color: rgb(18, 192, 231);
+          color: white;
+        }
+        .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        .topright {
+          position: absolute;
+          top: 8px;
+          right: 16px;
+          font-size: 18px;
+        }
+     
+      </style>
+    </head>
+           
+
+
+
+        <body style="background-color:rgb(44, 208, 104);">
+              
+<center><h2 style="color:rgb(37, 241, 194); font-size:50px; ">EXAMS</h2></center>
+<div><a href="{% url 'stu_pg' %}" class="topright" style="background-color: #17dff5;">Close</a></div>
+
+<br>
+<table id="t01">
+        <tr>
+            <th> Faculty Name</th>
+            <th> Subject</th>
+            <th> Exam</th>
+            <th> Upload</th>
+        </tr>
+  
+ <tbody>
+        {% for exam in exams %}
+        <tr>
+            <td>{{exam.Faculty_name}}</td>
+            <td>{{exam.Subject}}</td>
+            <td>
+              <a href="{{exam.Exam.url}}" class="button" target="_none">Attempt Exam</a>
+            </td>
+            <td>
+              <a href="{{exam.Upload}}"class="button" target="_none">Upload</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,129 @@
+{% load static %}
+<html> 
+  
+<head>    
+    <title>Login Form</title>    
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+</head>  
+    <style>
+        
+    body  
+    
+{  
+    
+    margin: auto;  
+    padding: 0;  
+    background: url("{% static 'images/soo.jpg' %}");  
+    font-family: 'Arial';   
+}  
+
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        padding: 80px;  
+        background: #3a83a7;  
+        border-radius: 15px ;  
+          
+}  
+h2{  
+    text-align: center;  
+    color: #277582;  
+    padding: 20px;  
+}  
+label{  
+    color: #08ffd1;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Name{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: rgb(226, 43, 104);  
+  
+  
+}  
+span{  
+    color: cyan;  
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color: greenyellow;  
+}
+button {   
+	       background-color: #0ae419;   
+	       width: 100%; 
+	        padding: 15px;   
+	        margin: 10px 0px;   
+	        border: none;   
+	        cursor: pointer;   
+	         }  
+  </style>   
+<body>    
+    <h2>Student SignUp</h2><br>    
+    <div class="login">  
+        <div>
+            {% for messages in messages%}
+            <h3> {{messages}}</h3>
+            {% endfor %}
+        </div>   
+    <form  method="POST" action="">    
+		{% csrf_token %}
+        <label><b>Student Name     
+        </b>    
+        </label>    
+        <input type="text" name="first_name" id="Uname" placeholder="student name">    
+        <br><br>   
+        <label><b>Username
+        </b>    
+        </label>    
+        <input type="text" name="username" id="Uname" placeholder="Username">    
+        <br><br> 
+        <label><b>Email Address     
+        </b>    
+        </label>    
+        <input type="text" name="email" id="Uname" placeholder="email address">    
+        <br><br>   
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password1" id="Pass" placeholder="Password">    
+        <br><br>    
+         <label><b>Confirm Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password2" id="Pass" placeholder="Password">    
+        <br><br>    
+		<button type="submit" name ="log" id="log">SIGNUP</button>
+        <br><br>    
+        <a href="{% url 'home' %}">cancel</a> 
+	</form> 
+	   
+</div>    
+</body>  
+</html>

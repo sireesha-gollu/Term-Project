@@ -1,0 +1,92 @@
+{% load static %}
+<html> 
+  
+<head>    
+    <title>upload exam</title>    
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+</head>  
+    <style>
+        
+        body  
+    
+        {  
+            
+            margin: auto;  
+            padding: 10px;  
+            height: 50%;
+            width: 50%;
+            background: url("{% static 'images/eback.jpg' %}");  
+            font-family: 'Arial';   
+        } 
+.login{  
+    width: 382px;  
+    overflow: hidden;  
+    margin: auto;  
+    padding: 80px;  
+    background: #3a83a7;  
+    border-radius: 15px ;  
+      
+} 
+h2{  
+    text-align: center;  
+    color: #14e5f0;  
+    padding: 20px;  
+}   
+label{  
+    color: #08ffd1;  
+    font-size: 17px;  
+}   
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: rgb(226, 43, 104);  
+  
+  
+}  
+span{  
+    color: cyan;  
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color:#15e22a;  
+}
+button {   
+	       background-color: #0ae419;   
+	       width: 100%; 
+	        padding: 15px;   
+	        margin: 10px 0px;   
+	        border: none;   
+	        cursor: pointer;   
+	         }  
+  </style>   
+<body>    
+    <h2>Upload Exam</h2><br>    
+    <div class="login">     
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button  type="submit" class="btn btn-primary">Upload Exam</button>
+            </form>
+    
+</div>    
+</body>  
+</html>     

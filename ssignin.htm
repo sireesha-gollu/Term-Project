@@ -1,0 +1,111 @@
+{% load static %}
+<html> 
+  
+<head>    
+    <title>Signin Form</title>    
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+</head>  
+    <style>
+        
+    body  
+    
+{  
+    margin: auto;  
+    padding: 0;  
+    background: url("{% static 'images/soo.jpg' %}");  
+    font-family: 'Arial';  
+}  
+.login{  
+    width: 382px;  
+    overflow: hidden;  
+    margin: auto;  
+    padding: 80px;  
+    background: #3a83a7;  
+    border-radius: 15px ;  
+      
+} 
+h2{  
+    text-align: center;  
+    color: #277582;  
+    padding: 20px;  
+}   
+label{  
+    color: #08ffd1;  
+    font-size: 17px;  
+}   
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: rgb(226, 43, 104);  
+  
+  
+}  
+span{  
+    color: cyan;  
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color:#15e22a;  
+}
+button {   
+	       background-color: #0ae419;   
+	       width: 100%; 
+	        padding: 15px;   
+	        margin: 10px 0px;   
+	        border: none;   
+	        cursor: pointer;   
+	         }  
+  </style>   
+<body>    
+    <h2>Student Signin Form</h2><br>    
+    <div class="login">    
+    <form  method="POST" action=""> 
+        <div>
+            
+            {% for message in messages %}
+            <h3> {{message}} </h3>
+            {% endfor %}
+        </div> 
+        {% csrf_token %}   
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="username" id="Uname" placeholder="Username">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="password" id="Pass" placeholder="Password">    
+        <br><br>  
+        <input type="checkbox" id="check">    
+        <span>Remember me   </span>    
+        <br><br>   
+        <button type="submit" name ="log" id="log">SIGNIN</button>       
+        <br><br>    
+           
+        
+        <a href="{% url 'home' %}">cancel</a> 
+    </form>  
+    
+</div>    
+</body>  
+</html>     
